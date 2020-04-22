@@ -1,2 +1,2 @@
-
+# necessary to prevent warnings about ansible inferring localhost as the default host
 localhost

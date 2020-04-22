@@ -1,11 +1,22 @@
 ---
   - name: "Playing with Ansible and Git"
+
     hosts: localhost
     connection: local 
+    
+
     tasks:
 
-    - name: "just execute a ls -lrt command"
-      shell: "ls -lrt"
-      register: "output"
+      
+      - name: "just execute a ls -lrt command"
+        shell: "ls -lrt"
+        register: "output"
 
-    - debug: var=output.stdout_lines
+    
+    roles:
+      
+      - role: gantsign.oh-my-zsh
+        become: yes
+        users:
+          - username: "{{ lookup('env', 'USER') }}"
+  
